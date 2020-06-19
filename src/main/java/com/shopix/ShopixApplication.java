@@ -86,15 +86,15 @@ public class ShopixApplication implements CommandLineRunner {
 		Produit p15 = new Produit("x-10", "Nutella", "Nutella", "Pack Biscuits B-Ready 132 G X6", "assets/images/15.png", 27);
        
 		//TV & Électronique
-		Produit p16 = new Produit("x-6", "Fashion", "Fashion", " Chaussures de Ville pour Hommes",
+		Produit p16 = new Produit("x-6", "Samsung", "SAMSUNG", "SAMSUNG A8",
 				"assets/images/16.png", 200);
-		Produit p17 = new Produit("x-7", "TUNIQUE À MANCHES COURTES", "Defacto", "Couleur: Kaki", "assets/images/17.png",
+		Produit p17 = new Produit("x-7", "Infinix", "INFINIX", "INFINIX 5W", "assets/images/17.png",
 				79);
-		Produit p18 = new Produit("x-8", "Daniel Wellington", "Daniel Wellington",
-				"Montre Pour Homme Classic Black Cornwall Silver 40Mm DW00100149 - TU", "assets/images/18.png", 1849);
-		Produit p19 = new Produit("x-9", "Nike", "Nike", "Survêtement pour Enfant - NIKE SPORTSWEAR",
+		Produit p18 = new Produit("x-8", "Wansenda", "Wansenda",
+				"Clé USB 3.0 Wansenda", "assets/images/18.png", 1849);
+		Produit p19 = new Produit("x-9", "SanDisk", "SanDisk", "Clé USB SanDisk",
 				"assets/images/19.png", 559);
-		Produit p20 = new Produit("x-10", "Defacto ROBE", "Defacto", "BLEU MARINE", "assets/images/5.jpg", 66);
+		Produit p20 = new Produit("x-10", "Oreik", "Oreik", "Ecouteur Oreik 9Max ", "assets/images/20.png", 66);
 
 		Categorie cat1 = categorieDao.findByNom("Informatique");
 		if (cat1 != null) {
