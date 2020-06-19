@@ -12,10 +12,12 @@ import com.shopix.beans.Categorie;
 import com.shopix.beans.Domaine;
 import com.shopix.beans.Fournisseur;
 import com.shopix.beans.Produit;
+import com.shopix.beans.User;
 import com.shopix.dao.CategorieDao;
 import com.shopix.dao.DomaineDao;
 import com.shopix.dao.FournisseurDao;
 import com.shopix.dao.ProduitDao;
+import com.shopix.dao.UserDao;
 
 @SpringBootApplication
 public class ShopixApplication implements CommandLineRunner {
@@ -27,6 +29,8 @@ public class ShopixApplication implements CommandLineRunner {
 	private FournisseurDao fournisseurDao;
 	@Autowired
 	private ProduitDao produitDao;
+	@Autowired
+	private UserDao userDao;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ShopixApplication.class, args);
@@ -40,14 +44,16 @@ public class ShopixApplication implements CommandLineRunner {
 			domaineDao.save(domaine);
 
 		});
-		Stream.of("Informatique", "Vetements & Chaussures", "TV & Electronique", "Supermarche").forEach(nameCategorie -> {
-			Categorie categorie = new Categorie();
-			categorie.setNom(nameCategorie);
-			categorieDao.save(categorie);
+		Stream.of("Informatique", "Vetements & Chaussures", "TV & Electronique", "Supermarche")
+				.forEach(nameCategorie -> {
+					Categorie categorie = new Categorie();
+					categorie.setNom(nameCategorie);
+					categorieDao.save(categorie);
 
-		});
-
-		Fournisseur fournisseur1 = new Fournisseur("f1", "f1@gmail.com", "0645362788");
+				});
+        User admin = new User((long) 1,"admin","admin","admin123","admin@gmail.com","admin","admin","0655443388",true,null,"ADMIN",null,null);
+	    userDao.save(admin);
+        Fournisseur fournisseur1 = new Fournisseur("f1", "f1@gmail.com", "0645362788");
 		Fournisseur fournisseur2 = new Fournisseur("f2", "f2@gmail.com", "0645454578");
 		Fournisseur fournisseur3 = new Fournisseur("f3", "f3@gmail.com", "0677474743");
 		fournisseurDao.save(fournisseur1);
@@ -74,22 +80,20 @@ public class ShopixApplication implements CommandLineRunner {
 
 		// SuperMarché
 
-		Produit p11 = new Produit("x-6", "Jaouda ", "Jaouda", "Lait Uht Entier 500Ml",
-				"assets/images/11.png", 5);
-		Produit p12 = new Produit("x-7", "Cigala", "Cigala", "Riz Jaune Étuvé Cigala 1Kg", "assets/images/12.png",
-				18);
-		Produit p13 = new Produit("x-8", "Huilor ", "Huilor ",
-				"Huile De Table Tournesol 5L", "assets/images/14.png", 69);
-		Produit p14 = new Produit("x-9", "Crunchips" + 
-				"", "Crunchips", "Chips Red Chili 100G",
-				"assets/images/4.jpg", 12);
-		Produit p15 = new Produit("x-10", "Nutella", "Nutella", "Pack Biscuits B-Ready 132 G X6", "assets/images/15.png", 27);
-       
-		//TV & Électronique
+		Produit p11 = new Produit("x-6", "Jaouda ", "Jaouda", "Lait Uht Entier 500Ml", "assets/images/11.png", 5);
+		Produit p12 = new Produit("x-7", "Cigala", "Cigala", "Riz Jaune Étuvé Cigala 1Kg", "assets/images/12.png", 18);
+		Produit p13 = new Produit("x-8", "Huilor ", "Huilor ", "Huile De Table Tournesol 5L", "assets/images/14.png",
+				69);
+		Produit p14 = new Produit("x-9", "Crunchips" + "", "Crunchips", "Chips Red Chili 100G", "assets/images/4.jpg",
+				12);
+		Produit p15 = new Produit("x-10", "Nutella", "Nutella", "Pack Biscuits B-Ready 132 G X6",
+				"assets/images/15.png", 27);
+
+		// TV & Électronique
 		Produit p16 = new Produit("x-6", "Fashion", "Fashion", " Chaussures de Ville pour Hommes",
 				"assets/images/16.png", 200);
-		Produit p17 = new Produit("x-7", "TUNIQUE À MANCHES COURTES", "Defacto", "Couleur: Kaki", "assets/images/17.png",
-				79);
+		Produit p17 = new Produit("x-7", "TUNIQUE À MANCHES COURTES", "Defacto", "Couleur: Kaki",
+				"assets/images/17.png", 79);
 		Produit p18 = new Produit("x-8", "Daniel Wellington", "Daniel Wellington",
 				"Montre Pour Homme Classic Black Cornwall Silver 40Mm DW00100149 - TU", "assets/images/18.png", 1849);
 		Produit p19 = new Produit("x-9", "Nike", "Nike", "Survêtement pour Enfant - NIKE SPORTSWEAR",
@@ -105,10 +109,10 @@ public class ShopixApplication implements CommandLineRunner {
 			p3.setCategorie(cat1);
 			produitDao.save(p3);
 			p4.setCategorie(cat1);
-			produitDao.save(p4); 
+			produitDao.save(p4);
 			p5.setCategorie(cat1);
 			produitDao.save(p5);
-			
+
 		}
 
 		Categorie cat2 = categorieDao.findByNom("Vetements & Chaussures");
