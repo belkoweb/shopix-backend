@@ -85,7 +85,7 @@ public class ShopixApplication implements CommandLineRunner {
 		Produit p12 = new Produit("x-7", "Cigala", "Cigala", "Riz Jaune Étuvé Cigala 1Kg", "assets/images/12.png", 18);
 		Produit p13 = new Produit("x-8", "Huilor ", "Huilor ", "Huile De Table Tournesol 5L", "assets/images/13.png",
 				69);
-		Produit p14 = new Produit("x-9", "Crunchips" + "", "Crunchips", "Chips Red Chili 100G", "assets/images/14.jpg",
+		Produit p14 = new Produit("x-9", "Crunchips" + "", "Crunchips", "Chips Red Chili 100G", "assets/images/14.png",
 				12);
 		Produit p15 = new Produit("x-10", "Nutella", "Nutella", "Pack Biscuits B-Ready 132 G X6",
 				"assets/images/15.png", 27);
