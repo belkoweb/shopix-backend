@@ -94,7 +94,7 @@ public class ShopixApplication implements CommandLineRunner {
 				"Montre Pour Homme Classic Black Cornwall Silver 40Mm DW00100149 - TU", "assets/images/18.png", 1849);
 		Produit p19 = new Produit("x-9", "Nike", "Nike", "Survêtement pour Enfant - NIKE SPORTSWEAR",
 				"assets/images/19.png", 559);
-		Produit p20 = new Produit("x-10", "Defacto ROBE", "Defacto", "BLEU MARINE", "assets/images/5.jpg", 66);
+		Produit p20 = new Produit("x-10", "Defacto ROBE", "Defacto", "BLEU MARINE", "assets/images/20.png", 66);
 
 		Categorie cat1 = categorieDao.findByNom("Informatique");
 		if (cat1 != null) {
