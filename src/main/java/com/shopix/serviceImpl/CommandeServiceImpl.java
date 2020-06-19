@@ -56,7 +56,7 @@ public class CommandeServiceImpl implements CommandeService {
 
 	@Override
 	public int save(String email, String password, Commande commande) {
-		User user = userService.findByEmailAndPassword(email, password);
+		User user = userService.findByEmail(email);
 		Commande res = findByref(commande.getRef());
 		if (user != null) {
 			if (commande != null && res == null) {
