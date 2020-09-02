@@ -1,6 +1,7 @@
 package com.shopix.serviceImpl;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -66,6 +67,26 @@ public class UserServiceImpl implements UserService {
 	public User findByEmailAndPassword1(String email, String password) {
 		// TODO Auto-generated method stub
 				return userDao.findByEmailAndPassword(email, password);
+	}
+
+	@Override
+	public List<User> findAll() {
+		// TODO Auto-generated method stub
+		return userDao.findAll();
+	}
+
+	@Override
+	public void changeStatus(long id, Boolean status) {
+		// TODO Auto-generated method stub
+		User user = userDao.getOne(id);
+		System.out.println("this is it !!");
+		System.out.println(user);
+		System.out.println(status);
+		if(user != null) {
+			System.out.println("in the if block");
+			user.setActive(status);
+			userDao.save(user);
+		}
 	}
 
 }

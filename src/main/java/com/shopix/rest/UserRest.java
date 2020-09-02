@@ -1,5 +1,7 @@
 package com.shopix.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,6 +21,14 @@ import com.shopix.service.UserService;
 public class UserRest {
 	@Autowired
 	private UserService userService;
+    @GetMapping("/")
+	public List<User> findAll() {
+		return userService.findAll();
+	}
+	@PostMapping("/id/{id}/status/{status}")
+	public void changeStatus(@PathVariable long id , @PathVariable Boolean status) {
+		 userService.changeStatus(id, status);
+	}
 	@PostMapping("/")
 	public ResponseEntity<?> save(@RequestBody User user) {
 		return userService.save(user);
@@ -27,6 +37,7 @@ public class UserRest {
 	public User finByNom(@PathVariable("nom")String nom) {
 		return userService.findByNom(nom);
 	}
+
     @GetMapping("/email/{email}")
 	public User findByEmail(@PathVariable("email")String email) {
 		return userService.findByEmail(email);
