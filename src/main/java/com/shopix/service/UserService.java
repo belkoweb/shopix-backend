@@ -21,4 +21,6 @@ public interface UserService {
 	
 
 	public void changeStatus(long id, Boolean status);
+	
+	
 }
